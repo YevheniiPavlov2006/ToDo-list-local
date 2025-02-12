@@ -70,7 +70,9 @@ function createTask(task){
 
   deleteBtn.addEventListener('click', function(){
     list.removeChild(listItem)
+    saveTask();
   })
+
 
 
 }
@@ -78,7 +80,7 @@ function createTask(task){
 function saveTask() {
   let tasks = [];
   list.querySelectorAll('div').forEach(function(item) {
-    tasks.push(item.textContent.trim());
+    tasks.push(item.textContent.replace('X', '').trim());
   });
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
