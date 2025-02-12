@@ -13,6 +13,10 @@
   --title-color: #202123;
   --gray-100: #e6e6e6;
   --shadow-color: #000000;
+  --green-color: rgb(19, 164, 19);
+  --green-light: rgb(183, 254, 183);
+  --red-color: rgb(167, 12, 12);
+  --red-light: rgb(255, 136, 136);
 
 }
 
@@ -29,6 +33,11 @@
   --title-color: #202123;
   --gray-100: #e6e6e6;
   --shadow-color: #dcd4d4;
+  --green-color: rgb(19, 164, 19);
+  --green-light: rgb(183, 254, 183);
+  --red-color: rgb(175, 6, 6);
+  --red-light: rgb(247, 160, 160);
+
 }
 
 * {   
@@ -48,6 +57,59 @@ body {
 button {
   cursor: pointer;
 }
+
+/*------------------messages-------------------*/
+
+.message {
+  font-size: 18px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  position: absolute;
+  top: -100px;
+}
+
+.error-message {
+  color: var(--red-color);
+  background-color: rgba(247, 160, 160, 0.8);
+}
+
+.added-message {
+  color: var(--green-color);
+  background-color: rgba(183, 254, 183, 0.8);
+}
+
+@media(max-width:550px){
+  .message {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+}
+
+.move {
+  animation-duration: 3s;
+  animation-name: moveMessage;
+}
+
+@keyframes moveMessage {
+  0%{
+    top: -100px;
+  }
+  40%{ 
+    top: 20px;
+  }
+  60%{ 
+    top: 20px;
+  }
+  100%{
+    top: -100px;
+  }
+}
+
+/*------------------messages-------------------*/
+
+
 
 /*---------------theme-button------------------*/
 .theme-button {

@@ -37,6 +37,9 @@ const addButton = document.getElementById('add-btn')
 const input = document.getElementById('input')
 const list = document.getElementById('list')
 
+const error = document.querySelector('.error-message')
+const added = document.querySelector('.added-message')
+
 loadTask()
 
 function addTask(){
@@ -46,13 +49,25 @@ function addTask(){
   if(task) {
     createTask(task);
     input.value = '';
+    added.classList.add("move")
+
+    added.addEventListener('animationend', function removeClass(){
+      added.classList.remove('move')
+      added.addEventListener('animationend', removeClass)
+    })
 
     saveTask();
 
   } else {
-    alert('Please enter a task!')
+    error.classList.add("move")
+
+    error.addEventListener('animationend', function removeClass(){
+      error.classList.remove('move')
+      error.addEventListener('animationend', removeClass)
+    })
   }
 }
+
 
 addButton.addEventListener('click', addTask)
 
